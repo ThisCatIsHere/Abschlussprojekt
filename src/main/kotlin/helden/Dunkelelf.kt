@@ -4,7 +4,8 @@ import gegner.Endboss
 import gegner.Gegner
 
 // Name der Klasse (Eigenschaften der Klasse): Name der vererbten Klassen (vererbte Eigenschaften)
-class Dunkelelf(name: String) : Helden(name) {
+class Dunkelelf(name: String, wenigerLeben: Int) : Helden(name, lebenspunkte = 750 - wenigerLeben) {
+    var wenigerLeben: Int = 250
     var sonnenFinsternis: Int = 200
     var blutMagie: Int = 150
     var sonnenZerstoerungsstab: Int = 100
@@ -26,8 +27,10 @@ class Dunkelelf(name: String) : Helden(name) {
         println("Text")
     }
 
-    fun heilung(helden: Endboss) {
-        helden.lebenspunkte + heilung
+    fun heilung(helden1: Helden, helden2: Helden, helden3: Helden) {
+        helden1.lebenspunkte = (helden1.lebenspunkte * 1.1).toInt() //+ 10% Heilung
+        helden2.lebenspunkte = (helden2.lebenspunkte * 1.1).toInt() //+ 10% Heilung
+        helden3.lebenspunkte = (helden3.lebenspunkte * 1.1).toInt() //+ 10% Heilung
         println("Die Helden wurden um 10% geheilt")
     }
 
@@ -55,7 +58,7 @@ class Dunkelelf(name: String) : Helden(name) {
             }
 
             4 -> {
-                helden.heilung(gegner)
+                heilung(helden1: Helden, helden2: Helden, helden3: Helden)
             }
 
             5 -> {

@@ -1,5 +1,4 @@
 import gegner.Endboss
-import gegner.Miniboss
 import helden.Dunkelelf
 import helden.Helden
 import helden.Khajit
@@ -20,7 +19,7 @@ fun heldenMenue(): Helden? {
 
     return when (userInput) {
         1 -> Khajit("Khajit")
-        2 -> Dunkelelf("Dunkelelf")
+        2 -> Dunkelelf("Dunkelelf", wenigerLeben = 250)
         3 -> Ork("Horak", 200)
         4 -> null
 

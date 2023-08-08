@@ -2,7 +2,7 @@ package helden
 
 import gegner.Gegner
 
-open class Helden(var name:String, var lebenspunkte: Int = 1000, var angriff: Int = 100){
+open class Helden(var name:String, var lebenspunkte: Int = 750, var angriff: Int = 100){
 
 // *Muss evtl später noch woanders hingepackt werden
     var handwerksbeutel: MutableMap<String, Int> = mutableMapOf(

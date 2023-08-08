@@ -9,8 +9,8 @@ import kotlin.system.exitProcess
 fun main() {
 
     var held1 = Khajit("Nachtklinge")
-    var held2 = Ork("Horak", extraLebenspunkte = 200)
-    var held3 = Dunkelelf("Anarwen")
+    var held2 = Ork("Horak", extraLebenspunkte = 150)
+    var held3 = Dunkelelf("Anarwen", wenigerLeben = 250)
     var endboss = Endboss("MolagBal")
     var miniboss = Miniboss(
         "Seelen Leibeigener", wenigerLeben = 2500)
@@ -78,10 +78,11 @@ fun neuesSpiel() {
         }
 
 
-
-
     }
-
-
-
 }
+
+
+
+
+
+

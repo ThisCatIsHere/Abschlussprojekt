@@ -3,9 +3,9 @@ package helden
 import gegner.Endboss
 import gegner.Gegner
 
-class Ork(name: String, extraLebenspunkte: Int) : Helden(name, lebenspunkte = 1000 + extraLebenspunkte) {
+class Ork(name: String, extraLebenspunkte: Int) : Helden(name, lebenspunkte = 750 + extraLebenspunkte) {
 
-    var extraLebenspunkte = 200
+    var extraLebenspunkte = 150
     var blockade: Int = 300
     var versengenderSchlag: Int = 250
     var kettenDerVerwuestung: Int = 200
