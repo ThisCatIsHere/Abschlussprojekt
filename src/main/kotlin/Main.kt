@@ -8,12 +8,7 @@ import kotlin.system.exitProcess
 
 fun main() {
 
-    var held1 = Khajit("Nachtklinge")
-    var held2 = Ork("Horak", extraLebenspunkte = 150)
-    var held3 = Dunkelelf("Anarwen", wenigerLeben = 250)
-    var endboss = Endboss("MolagBal")
-    var miniboss = Miniboss(
-        "Seelen Leibeigener", wenigerLeben = 2500)
+
 
     println("Willkommen zum ESO RPG-Game")
     var menue = listOf("1. Neues Spiel", "2. Spiel beenden")
@@ -69,7 +64,7 @@ fun neuesSpiel() {
         } else if (selectedHero is Dunkelelf) {
             val endboss = Endboss("Molag Bal")
             var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 2500)
-            battlemenueDunkelelf(selectedHero, endboss)
+            held3.battlemenueDunkelelf(endboss)
 
         } else if (selectedHero is Ork) {
             val endboss = Endboss("Molag Bal")

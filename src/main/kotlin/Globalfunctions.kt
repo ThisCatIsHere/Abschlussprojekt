@@ -1,4 +1,5 @@
 import gegner.Endboss
+import gegner.Miniboss
 import helden.Dunkelelf
 import helden.Helden
 import helden.Khajit
@@ -6,6 +7,16 @@ import helden.Ork
 
 var minibossSpawnt = false
 
+var held1 = Khajit("Nachtklinge")
+var held2 = Ork("Horak", extraLebenspunkte = 150)
+var held3 = Dunkelelf("Anarwen", wenigerLeben = 250)
+
+var endboss = Endboss("MolagBal")
+var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 2500)
+
+
+
+//Die battlemenüs müssen noch angepasst werden wie beim Dunkelelf
 fun heldenMenue(): Helden? {
     println("Wähle deinen Helden:")
     println("1 = Khajit | 2 = Dunkelelf | 3 = Ork | 4 = Abbrechen")
@@ -69,44 +80,7 @@ fun battlemenueKhajit(helden: Khajit, gegner: Endboss) {
     }
 
 }
-// *Battlemenü vom Dunkelelf
-fun battlemenueDunkelelf(helden: Dunkelelf, gegner: Endboss) {
-    println("Wähle nun deine Aktion aus")
-    println("1 = Sonnen Finsternis | 2 = Blutmagie | 3 = Sonnen Zerstörungsstab | 4 = Heilung | 5 = Abbrechen")
 
-    var userInput: Int
-    userInput = try {
-        readLine()?.toInt() ?: 0
-    } catch (e: NumberFormatException) {
-        0
-    }
-    when (userInput) {
-        1 -> {
-            helden.sonnenFinsternis(gegner)
-        }
-
-        2 -> {
-            helden.blutMagie(gegner)
-        }
-
-        3 -> {
-            helden.sonnenZerstoerungsstab(gegner)
-        }
-
-        4 -> {
-            helden.heilung(gegner)
-        }
-
-        5 -> {
-            println("Du hast die Aktion abgebrochen")
-            // ?Laufzeitvariable einbauen
-        }
-
-        else -> {
-            println("Du kannst nur die Zahlen 1 - 5 nutzen!")
-        }
-    }
-}
 // *Battlemenü vom Ork
 fun battlemenueOrk(helden: Ork, gegner: Endboss) {
     println("Wähle nun deine Aktion aus")

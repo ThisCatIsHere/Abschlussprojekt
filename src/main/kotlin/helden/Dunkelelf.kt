@@ -2,6 +2,9 @@ package helden
 
 import gegner.Endboss
 import gegner.Gegner
+import held1
+import held2
+import held3
 
 // Name der Klasse (Eigenschaften der Klasse): Name der vererbten Klassen (vererbte Eigenschaften)
 class Dunkelelf(name: String, wenigerLeben: Int) : Helden(name, lebenspunkte = 750 - wenigerLeben) {
@@ -28,13 +31,22 @@ class Dunkelelf(name: String, wenigerLeben: Int) : Helden(name, lebenspunkte = 7
     }
 
     fun heilung(helden1: Helden, helden2: Helden, helden3: Helden) {
+        // hier sollte noch geprüft werden ob die Helden Überhaupt Lebenverloren haben
+        // Wenn ja dann darf heilung erfolgen
+        // Wenn nein dann muss eine Meldung kommen dieser Skill konnte nicht ausgeführt werden oder so ähnlich
+
         helden1.lebenspunkte = (helden1.lebenspunkte * 1.1).toInt() //+ 10% Heilung
         helden2.lebenspunkte = (helden2.lebenspunkte * 1.1).toInt() //+ 10% Heilung
         helden3.lebenspunkte = (helden3.lebenspunkte * 1.1).toInt() //+ 10% Heilung
         println("Die Helden wurden um 10% geheilt")
+        /*println(helden1.lebenspunkte)
+        println(helden2.lebenspunkte)
+        println(helden3.lebenspunkte)
+        Hier noch eine schönere Println
+         */
     }
 
-    fun battlemenueDunkelelf(helden: Dunkelelf, gegner: Endboss) {
+    fun battlemenueDunkelelf(gegner: Endboss) {
         println("Wähle nun deine Aktion aus")
         println("1 = Sonnen Finsternis | 2 = Blutmagie | 3 = Sonnen Zerstörungsstab | 4 = Heilung | 5 = Abbrechen")
 
@@ -46,19 +58,19 @@ class Dunkelelf(name: String, wenigerLeben: Int) : Helden(name, lebenspunkte = 7
         }
         when (userInput) {
             1 -> {
-                helden.sonnenFinsternis(gegner)
+                sonnenFinsternis(gegner)
             }
 
             2 -> {
-                helden.blutMagie(gegner)
+                blutMagie(gegner)
             }
 
             3 -> {
-                helden.sonnenZerstoerungsstab(gegner)
+               sonnenZerstoerungsstab(gegner)
             }
 
             4 -> {
-                heilung(helden1: Helden, helden2: Helden, helden3: Helden)
+                heilung(held1, held2, held3)
             }
 
             5 -> {
