@@ -31,7 +31,7 @@ class Dunkelelf(name: String, wenigerLeben: Int) : Helden(name, lebenspunkte = 7
     }
 
     fun heilung(helden1: Helden, helden2: Helden, helden3: Helden) {
-        // hier sollte noch geprüft werden ob die Helden Überhaupt Lebenverloren haben
+        // hier sollte noch geprüft werden ob die Helden Überhaupt Leben verloren haben
         // Wenn ja dann darf heilung erfolgen
         // Wenn nein dann muss eine Meldung kommen dieser Skill konnte nicht ausgeführt werden oder so ähnlich
 

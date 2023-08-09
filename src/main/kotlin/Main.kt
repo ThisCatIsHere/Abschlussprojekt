@@ -59,7 +59,7 @@ fun neuesSpiel() {
         } else if (selectedHero is Khajit) {
             val endboss = Endboss("Molag Bal")
             var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 2500)
-            battlemenueKhajit(selectedHero, endboss)
+            held1.battlemenueKhajit(endboss)
 
         } else if (selectedHero is Dunkelelf) {
             val endboss = Endboss("Molag Bal")
@@ -69,9 +69,8 @@ fun neuesSpiel() {
         } else if (selectedHero is Ork) {
             val endboss = Endboss("Molag Bal")
             var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 2500)
-            battlemenueOrk(selectedHero, endboss)
+            held2.battlemenueOrk(endboss)
         }
-
 
     }
 }

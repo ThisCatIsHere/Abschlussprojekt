@@ -31,7 +31,7 @@ class Khajit(name: String) : Helden(name) {
         println("Hier kommt noch ein passender Text hin")
     }
 
-    fun battlemenueKhajit(helden: Khajit, gegner: Endboss) {
+    fun battlemenueKhajit(gegner: Endboss) {
         println("Wähle nun deine Aktion aus")
         println("1 = Assassinen Klinge | 2 = Schattenschuss | 3 = Verwirrungsschlag | 4 = Mondsichelgranate | 5 = Abbrechen")
 
@@ -43,19 +43,19 @@ class Khajit(name: String) : Helden(name) {
         }
         when (userInput) {
             1 -> {
-                helden.assassinenKlinge(gegner)
+                assassinenKlinge(gegner)
             }
 
             2 -> {
-                helden.schattenSchuss(gegner)
+                schattenSchuss(gegner)
             }
 
             3 -> {
-                helden.verwirrungsSchlag(gegner)
+                verwirrungsSchlag(gegner)
             }
 
             4 -> {
-                helden.mondsichelGranate(gegner)
+                mondsichelGranate(gegner)
             }
 
             5 -> {

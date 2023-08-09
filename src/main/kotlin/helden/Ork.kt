@@ -32,7 +32,7 @@ class Ork(name: String, extraLebenspunkte: Int) : Helden(name, lebenspunkte = 75
         println("Hier kommt noch passender Text")
     }
 
-    fun battlemenueOrk(helden: Ork, gegner: Endboss) {
+    fun battlemenueOrk(gegner: Endboss) {
         println("Wähle nun deine Aktion aus")
         println("1 = Blockade | 2 = Versengender Schlag | 3 = Ketten der Verwüstung | 4 = Glutgranate | 5 = Abbrechen")
 
@@ -44,19 +44,19 @@ class Ork(name: String, extraLebenspunkte: Int) : Helden(name, lebenspunkte = 75
         }
         when (userInput) {
             1 -> {
-                helden.blockade(gegner)
+                blockade(gegner)
             }
 
             2 -> {
-                helden.versengenderSchlag(gegner)
+                versengenderSchlag(gegner)
             }
 
             3 -> {
-                helden.kettenDerVerwuestung(gegner)
+                kettenDerVerwuestung(gegner)
             }
 
             4 -> {
-                helden.glutGranate(gegner)
+                glutGranate(gegner)
             }
 
             5 -> {
