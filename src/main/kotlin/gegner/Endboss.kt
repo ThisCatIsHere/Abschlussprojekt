@@ -8,7 +8,9 @@ class Endboss(name: String) : Gegner(name) {
     var seelenRaub: Int = 300 //soll alle helden treffen
     var seelenAnker: Int = 250
     var seelenFluch: Int = 100 //soll nur einen helden treffen
-    var verloreneSeele: Miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 500)
+    var seelenZange: Int = 50
+    var wuetendesSchnauben: Int = 25
+    var verloreneSeele: Miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 500)//erst wenn der Endboss nur noch 50% leben hat
 
 
     fun seelenRaub(held1: Helden, held2: Helden, held3: Helden) {
