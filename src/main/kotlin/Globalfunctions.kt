@@ -42,6 +42,26 @@ fun heldenMenue(): Helden? {
 
 }
 
+fun neueRunde(){
+    while (!gameOver(endboss, held1, held2, held3)){
+        if (!minibossSpawnt){
+            minibossSpawnt = true
+            println("Molag Bal ruft einen Seelen Leibeigenen herbei...")
+            gameOver(endboss, held1, held2, held3)
+
+        } else {
+            println("Molag Bal erscheint")
+            gameOver(endboss, held1, held2, held3)
+        }
+
+    }
+}
+fun gameOver(endboss: Endboss, held1: Khajit, held2: Ork, held3: Dunkelelf): Boolean{
+    if ((held1.lebenspunkte == 0) && (held2.lebenspunkte == 0) && (held3.lebenspunkte == 0)){
+        return true
+    }
+    return false
+}
 
 
 
