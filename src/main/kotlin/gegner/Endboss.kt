@@ -4,7 +4,8 @@ import helden.Helden
 import minibossSpawnt
 
 
-class Endboss(name: String) : Gegner(name) {
+class Endboss(name: String,lebenspunkte: Int) : Gegner(name,lebenspunkte) {
+    var maxLebenspunkte: Int = 1000
     var seelenRaub: Int = 300 //soll alle helden treffen
     var seelenAnker: Int = 250
     var seelenFluch: Int = 100 //soll nur einen helden treffen
@@ -28,7 +29,7 @@ class Endboss(name: String) : Gegner(name) {
 
     fun seelenFluch(helden: Helden) {
         helden.lebenspunkte -= seelenFluch
-        println("Molag Bal verflucht einen Helden")
+        println("Molag Bal verflucht einen Helden") //10% pro Held, pro runde bis HP weniger als 20%
 
     }
     fun seelenZange(helden: Helden) {
@@ -46,7 +47,7 @@ class Endboss(name: String) : Gegner(name) {
         }
     }
     fun verloreneSeeleSpawnt() {
-        if (lebenspunkte <= 500 / 2 && verloreneSeele == null) {
+        if (lebenspunkte <= 500 && verloreneSeele == null) {
             verloreneSeele = Miniboss("Seelen Leibeigener", wenigerLeben = 500)
             println("Molag Bal ruft seinen Seelenleibeigenen herbei!")
         }

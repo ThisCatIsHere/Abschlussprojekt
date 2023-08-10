@@ -82,7 +82,7 @@ fun neuesSpiel() {
     die Dunkelheit scheint alles zu verschlingen.
      """.trimIndent())
 
-
+println()
 
     while (!isGameOver) {
         val selectedHero = heldenMenue()
@@ -92,23 +92,23 @@ fun neuesSpiel() {
             break
 
         } else if (selectedHero is Khajit) {
-            val endboss = Endboss("Molag Bal")
+            val endboss = Endboss("Molag Bal", 1000)
             var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 2500)
             held1.battlemenueKhajit(endboss)
 
         } else if (selectedHero is Dunkelelf) {
-            val endboss = Endboss("Molag Bal")
+            val endboss = Endboss("Molag Bal", 1000)
             var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 2500)
             held3.battlemenueDunkelelf(endboss)
 
         } else if (selectedHero is Ork) {
-            val endboss = Endboss("Molag Bal")
+            val endboss = Endboss("Molag Bal", 1000)
             var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 2500)
             held2.battlemenueOrk(endboss)
         }
 
     }
-    neueRunde()
+
 }
 
 
