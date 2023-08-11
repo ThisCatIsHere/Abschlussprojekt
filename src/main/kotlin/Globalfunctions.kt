@@ -8,6 +8,8 @@ import helden.Ork
 
 var minibossSpawnt = false
 
+
+
 var held1 = Khajit("Nachtklinge")
 var held2 = Ork("Horak", extraLebenspunkte = 150)
 var held3 = Dunkelelf("Anarwen", wenigerLeben = 250)
@@ -15,7 +17,7 @@ var held3 = Dunkelelf("Anarwen", wenigerLeben = 250)
 var endboss = Endboss("MolagBal", 1000)
 var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 500)
 
-
+var heldenListe = mutableListOf<Helden>(held1, held2, held3)
 
 
 fun heldenMenue(): Helden? {

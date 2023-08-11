@@ -1,12 +1,14 @@
 import gegner.Endboss
 import gegner.Miniboss
 import helden.Dunkelelf
+import helden.Helden
 import helden.Khajit
 import helden.Ork
 import kotlin.system.exitProcess
 
 
 fun main() {
+
 
     println("\t\tWillkommen zum ESO RPG-Game")
 
@@ -87,26 +89,20 @@ println()
     while (!isGameOver) {
         val selectedHero = heldenMenue()
 
-        if (selectedHero == null) {
-            println("Du hast dich entschieden abzubrechen. Auf Wiedersehen!")
-            break
-
-        } else if (selectedHero is Khajit) {
-            val endboss = Endboss("Molag Bal", 1000)
-            var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 2500)
-            held1.battlemenueKhajit(endboss)
-
-        } else if (selectedHero is Dunkelelf) {
-            val endboss = Endboss("Molag Bal", 1000)
-            var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 2500)
-            held3.battlemenueDunkelelf(endboss)
-
-        } else if (selectedHero is Ork) {
-            val endboss = Endboss("Molag Bal", 1000)
-            var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 2500)
-            held2.battlemenueOrk(endboss)
-        }
-
+//        if (selectedHero == null) {
+//            println("Du hast dich entschieden abzubrechen. Auf Wiedersehen!")
+//            break
+//
+//        } else if (selectedHero is Khajit) {
+//            held1.battlemenueKhajit(endboss)
+//
+//        } else if (selectedHero is Dunkelelf) {
+//            held3.battlemenueDunkelelf(endboss)
+//
+//        } else if (selectedHero is Ork) {
+//            held2.battlemenueOrk(endboss)
+//        }
+//Spielablauf in klein aufbauen
     }
 
 }
