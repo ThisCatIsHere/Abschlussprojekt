@@ -61,7 +61,7 @@ fun neuesSpiel() {
         der kraftvolle Ork-Krieger, finden sich inmitten dieser bedrohlichen Situation wieder.
         
         
-    """.trimIndent())//Das habe ich von ChatGpt, da mir der Text immer falsch formatiert wurde, wurde mir das hier vorgeschlagen.
+    """.trimIndent()) //Das habe ich von ChatGpt, da mir der Text immer falsch formatiert wurde, wurde mir das hier vorgeschlagen.
     Thread.sleep(500)
     println("""
     |Kapitel 2: Die Reise ins Ungewisse|
