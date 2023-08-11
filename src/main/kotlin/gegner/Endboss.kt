@@ -29,16 +29,18 @@ class Endboss(name: String,lebenspunkte: Int) : Gegner(name,lebenspunkte) {
         println("Molag Bal schmettert seinen Seelen Anker zu den Helden")
     }
 
+
 //    fun seelenFluch(helden: Helden) {
 //        helden.lebenspunkte -= seelenFluch
 //        println("Molag Bal verflucht einen Helden")}
 
 
-    fun seelenFluch(held: Helden) {
+    fun seelenFluch() {
         var randomHeld = heldenListe.random() //Boolean anlegen und jede Runde abfragen, ob
         while (randomHeld.lebenspunkte > randomHeld.lebenspunkte * 0.2) {
-            randomHeld.lebenspunkte -= (randomHeld.lebenspunkte * 0.1).toInt() // 10% pro Held, pro Runde bis HP weniger als 20%
+            randomHeld.lebenspunkte -= (randomHeld.lebenspunkte * 0.9).toInt() // 10% pro Held, pro Runde bis HP weniger als 20%
             println("Molag Bal verflucht den Helden ${randomHeld.name}")
+            println(randomHeld.lebenspunkte)
         }
     }
 
