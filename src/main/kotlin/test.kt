@@ -6,6 +6,8 @@ fun main() {
     var held: Helden = Helden("Khajit", 750)
 
     endboss.seelenFluch()
-    //println(held.lebenspunkte)
+
+
+    //println(held2.lebenspunkte)
 
 }

@@ -36,12 +36,15 @@ class Endboss(name: String,lebenspunkte: Int) : Gegner(name,lebenspunkte) {
 
 
     fun seelenFluch() {
+        //var randomHeld = heldenListe.random() //Boolean anlegen und jede Runde abfragen, ob
         var randomHeld = heldenListe.random() //Boolean anlegen und jede Runde abfragen, ob
+
+
         var zwanzigProzent = false
         //In der Variable steht die jeweilige LP des Helden drin
         var heldLP20 = (randomHeld.lebenspunkte * 0.2).toInt()
         while (!zwanzigProzent){
-            if (randomHeld.lebenspunkte != heldLP20){
+            if (randomHeld.lebenspunkte > heldLP20){
                 randomHeld.lebenspunkte -= seelenFluch
                 println("Molag Bal verflucht den Helden ${randomHeld.name}")
                 println(randomHeld.lebenspunkte)
