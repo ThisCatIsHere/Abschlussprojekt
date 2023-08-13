@@ -9,7 +9,6 @@ import helden.Ork
 var minibossSpawnt = false
 
 
-
 var held1 = Khajit("Nachtklinge")
 var held2 = Ork("Horak", extraLebenspunkte = 150)
 var held3 = Dunkelelf("Anarwen", wenigerLeben = 250)
@@ -42,36 +41,39 @@ fun heldenMenue(): Helden? {
             heldenMenue()
         }
     }
-
 }
+
 //Die Funktion wurde mithilfe von Chat Gpt erstellt
 fun kampfRunde() {
+
     while (!gameOver(endboss, held1, held2, held3)) {
 
-            if (endboss.lebenspunkte > endboss.maxLebenspunkte / 2) {
-                println("Molag Bal erscheint")
-                endboss.endbossAttacke()
-            } else if (!minibossSpawnt) {
-                minibossSpawnt = true
-                println("Molag Bal ruft einen Seelen Leibeigenen herbei...")
-                endboss.verloreneSeeleSpawnt()
-                endboss.verloreneSeele?.let {
-                    println("Miniboss erscheint")
-                    minibossAttacke()
-                }
-            } else {
-                println("Molag Bal erscheint")
-                endboss.endbossAttacke()
+        if (endboss.lebenspunkte > endboss.maxLebenspunkte / 2) {
+            println("Molag Bal greift an!")
+            println("")
+            endboss.endbossAttacke()
+            println("")
+            heldenMenue()
+
+        } else if (!minibossSpawnt) {
+            minibossSpawnt = true
+            println("Molag Bal ruft einen Seelen Leibeigenen herbei...")
+            endboss.verloreneSeeleSpawnt()
+            endboss.verloreneSeele?.let {
+                println("Miniboss erscheint")
+                minibossAttacke()
             }
-        println("Das Spiel ist vorbei.")
+        } else {
+            println("Molag Bal erscheint")
+            endboss.endbossAttacke()
         }
+        println("Das Spiel ist vorbei.")
     }
+}
 
 
-
-
-fun gameOver(endboss: Endboss, held1: Khajit, held2: Ork, held3: Dunkelelf): Boolean{
-    if ((held1.lebenspunkte == 0) && (held2.lebenspunkte == 0) && (held3.lebenspunkte == 0)){
+fun gameOver(endboss: Endboss, held1: Khajit, held2: Ork, held3: Dunkelelf): Boolean {
+    if ((held1.lebenspunkte == 0) && (held2.lebenspunkte == 0) && (held3.lebenspunkte == 0)) {
         return true
     }
     return false

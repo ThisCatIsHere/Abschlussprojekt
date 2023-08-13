@@ -1,3 +1,6 @@
+import helden.Dunkelelf
+import helden.Khajit
+import helden.Ork
 import kotlin.system.exitProcess
 
 
@@ -85,26 +88,29 @@ fun neuesSpiel() {
     println("==============================================")
     println("*** Molag Bal erscheint aus der Finsternis ***")
     println("==============================================")
-    println()
+    println("")
 
-    //kampfRunde()
+
+    kampfRunde()
+
 
     while (!isGameOver) {
         val selectedHero = heldenMenue()
 
-//        if (selectedHero == null) {
-//            println("Du hast dich entschieden abzubrechen. Auf Wiedersehen!")
-//            break
-//
-//        } else if (selectedHero is Khajit) {
-//            held1.battlemenueKhajit(endboss)
-//
-//        } else if (selectedHero is Dunkelelf) {
-//            held3.battlemenueDunkelelf(endboss)
-//
-//        } else if (selectedHero is Ork) {
-//            held2.battlemenueOrk(endboss)
-//        }
+        if (selectedHero == null) {
+            println("Du hast dich entschieden abzubrechen. Auf Wiedersehen!")
+            break
+
+        } else if (selectedHero is Khajit) {
+            held1.battlemenueKhajit(endboss)
+
+        } else if (selectedHero is Dunkelelf) {
+            held3.battlemenueDunkelelf(endboss)
+
+        } else if (selectedHero is Ork) {
+            held2.battlemenueOrk(endboss)
+        }
+
 //Spielablauf in klein aufbauen
     }
     //Endboss Spawnt mit text

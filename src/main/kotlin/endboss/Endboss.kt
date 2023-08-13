@@ -29,7 +29,7 @@ class Endboss(name: String,lebenspunkte: Int) : Gegner(name,lebenspunkte) {
     fun seelenAnker() {
         var randomHeld = heldenListe.random()
         randomHeld.lebenspunkte -= seelenAnker
-        println("Molag Bal schmettert seinen Seelen Anker zu den Helden")
+        println("Molag Bal schmettert seinen Seelen Anker zu ${randomHeld.name}")
     }
 
 
