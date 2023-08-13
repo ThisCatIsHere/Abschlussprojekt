@@ -125,7 +125,7 @@ fun neuesSpiel() {
     //Boss + schergen aktionen
     //aktion boss
 
-    //Aktion scherge falls da
+    //Aktion Miniboss
 
 
     /////////////////////////////////////ende Runde//////////////////////////
