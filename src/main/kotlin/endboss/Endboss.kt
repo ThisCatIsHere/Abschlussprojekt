@@ -1,9 +1,11 @@
-package gegner
+package endboss
 
+import held1
+import held2
+import held3
 import helden.Helden
 import heldenListe
 import minibossSpawnt
-import kotlin.random.Random
 
 
 class Endboss(name: String,lebenspunkte: Int) : Gegner(name,lebenspunkte) {
@@ -16,7 +18,7 @@ class Endboss(name: String,lebenspunkte: Int) : Gegner(name,lebenspunkte) {
     var verloreneSeele: Miniboss? = null //erst wenn der Endboss nur noch 50% leben hat
 
 
-    fun seelenRaub(held1: Helden, held2: Helden, held3: Helden) {
+    fun seelenRaubausfuehren(held1: Helden, held2: Helden, held3: Helden) {
         held1.lebenspunkte -= seelenRaub
         held2.lebenspunkte -= seelenRaub
         held3.lebenspunkte -= seelenRaub
@@ -24,18 +26,15 @@ class Endboss(name: String,lebenspunkte: Int) : Gegner(name,lebenspunkte) {
         println("Molag Bal greift alle Helden mit seinem Seelenraub an")
     }
 
-    fun seelenAnker(helden: Helden) {
-        helden.lebenspunkte -= seelenAnker
+    fun seelenAnker() {
+        var randomHeld = heldenListe.random()
+        randomHeld.lebenspunkte -= seelenAnker
         println("Molag Bal schmettert seinen Seelen Anker zu den Helden")
     }
 
 
-
-
-
     fun seelenFluch() {
-        //var randomHeld = heldenListe.random() //Boolean anlegen und jede Runde abfragen, ob
-        var randomHeld = heldenListe.random() //Boolean anlegen und jede Runde abfragen, ob
+        var randomHeld = heldenListe.random()
 
         var zwanzigProzent = false
         //In der Variable steht die jeweilige LP des Helden drin
@@ -52,16 +51,15 @@ class Endboss(name: String,lebenspunkte: Int) : Gegner(name,lebenspunkte) {
 
     }
 
-//    fun seelenFluchSchaden(helden: Helden){
-//
-//    }
-    fun seelenZange(helden: Helden) {
-        helden.lebenspunkte -= seelenZange
+    fun seelenZange() {
+    var randomHeld = heldenListe.random()
+        randomHeld.lebenspunkte -= seelenZange
         println("Molag Bal schingt seine Seelen Zange")
     }
 
-    fun wuetendesSchnauben(helden: Helden) {
-        helden.lebenspunkte -= wuetendesSchnauben
+    fun wuetendesSchnauben() {
+        var randomHeld = heldenListe.random()
+        randomHeld.lebenspunkte -= wuetendesSchnauben
         println("Molag Bal schnaubt wütend und sein Atem trifft einen Helden")
     }
 
@@ -74,6 +72,14 @@ class Endboss(name: String,lebenspunkte: Int) : Gegner(name,lebenspunkte) {
     }
 
     fun endbossAttacke(){
-
+        var randomattack = listOf<Int>(1,2,3,4,5,6).random()
+        when(randomattack){
+            1-> seelenRaubausfuehren(held1, held2, held3) //Flächenschaden vom Endboss
+            2-> seelenAnker()
+            3-> seelenFluch()
+            4-> seelenZange()
+            5-> wuetendesSchnauben()
+            6-> verloreneSeeleSpawnt()
+        }
     }
 }

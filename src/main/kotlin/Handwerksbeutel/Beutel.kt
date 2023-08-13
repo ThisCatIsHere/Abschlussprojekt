@@ -1,14 +1,24 @@
 package Handwerksbeutel
 
-class Beutel(name: String) : Item(name) {
-    var items = mutableListOf<Item>()
+open class Beutel(){
+
+    var inventar: MutableList<Item> = mutableListOf()
+
+    init {
+        repeat(3){
+            var heiltrank = Heiltrank("HP Potion", 50)
+            inventar.add(heiltrank)
+        }
+        var vitaminbombe = Vitaminbombe("Power", 10)
+        inventar.add(vitaminbombe)
+    }
 
     fun addItem(item: Item) {
-        items.add(item)
+        inventar.add(item)
     }
 
     fun getItem(): List<Item> {
-        return items.toMutableList()
+        return inventar.toMutableList()
 
     }
 }

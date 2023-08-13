@@ -1,4 +1,4 @@
-package gegner
+package endboss
 
 import helden.Helden
 import heldenListe

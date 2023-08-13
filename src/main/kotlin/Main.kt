@@ -1,9 +1,3 @@
-import gegner.Endboss
-import gegner.Miniboss
-import helden.Dunkelelf
-import helden.Helden
-import helden.Khajit
-import helden.Ork
 import kotlin.system.exitProcess
 
 
@@ -45,14 +39,13 @@ fun main() {
 }
 
 
-
-
 fun neuesSpiel() {
     var isGameOver = false
     println("Neues Spiel wird gestartet...")
     println()
     println("=== Schatten über Tamriel ===")
-    println("""
+    println(
+        """
         |Kapitel 1: Das Erwachen der Dunkelheit|
         In einer Welt voller Magie und Abenteuer, in der die Lande von Tamriel blühen,
         breitet sich eine Dunkelheit aus, die alles zu verschlingen droht. Dichter Nebel 
@@ -61,9 +54,11 @@ fun neuesSpiel() {
         der kraftvolle Ork-Krieger, finden sich inmitten dieser bedrohlichen Situation wieder.
         
         
-    """.trimIndent()) //Das habe ich von ChatGpt, da mir der Text immer falsch formatiert wurde, wurde mir das hier vorgeschlagen.
+    """.trimIndent()
+    ) //Das habe ich von ChatGpt, da mir der Text immer falsch formatiert wurde, wurde mir das hier vorgeschlagen.
     Thread.sleep(500)
-    println("""
+    println(
+        """
     |Kapitel 2: Die Reise ins Ungewisse|
     Die Helden werden durch eine Vision vereint, die ihnen die drohende Gefahr von Molag Bal zeigt, 
     einem mächtigen Daedra-Prinzen, der die Seelen der Einwohner von Tamriel für sich beanspruchen will. 
@@ -72,19 +67,26 @@ fun neuesSpiel() {
     während die Seelenlosen nach ihnen greifen.
     
     
-    """.trimIndent())
+    """.trimIndent()
+    )
 
     Thread.sleep(500)
-    println("""
+    println(
+        """
     |Kapitel 3: Der Endboss und die Entscheidung|
     Endlich erreichen die Helden den Ort, an dem Molag Bal seine finsteren Pläne schmiedet. 
     Dort stehen sie seinem Schrecken gegenüber, als er versucht, die Seelen der Einwohner von 
     Tamriel zu verschlingen, um unermessliche Macht zu erlangen. In einem epischen Kampf setzen die Helden 
     all ihre Fähigkeiten und Stärken ein, um Molag Bal entgegenzutreten. Doch der Kampf ist nicht leicht, und 
     die Dunkelheit scheint alles zu verschlingen.
-     """.trimIndent())
+     """.trimIndent()
+    )
+    println()
+    println("==============================================")
+    println("*** Molag Bal erscheint aus der Finsternis ***")
+    println("==============================================")
+    println()
 
-println()
 
     while (!isGameOver) {
         val selectedHero = heldenMenue()
@@ -104,6 +106,33 @@ println()
 //        }
 //Spielablauf in klein aufbauen
     }
+    //Endboss Spawnt mit text
+    ////////////////////////////////////////Kampf////////////////////////////
+    /// While über 0 helden(loose) oder über 0 bosse(win)
+
+    //Runde Startet
+    //////////////////////////////////////Runde////////////////////////////
+    /// While aktionen helden und boss übrig
+
+    // Helden greifen an
+    //while helden aktionen (jeder held eine)
+    //Auswahl held
+    val selectedHero = heldenMenue()
+    ////Aktion held
+
+
+    //Boss greift an
+    //Boss + schergen aktionen
+    //aktion boss
+
+    //Aktion scherge falls da
+
+
+    /////////////////////////////////////ende Runde//////////////////////////
+
+
+    ///////////////////////////////////ende Kampf///////////////////////////
+//      Win or Loose screen
 
 }
 

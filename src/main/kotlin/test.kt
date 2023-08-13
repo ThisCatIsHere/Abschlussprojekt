@@ -1,4 +1,4 @@
-import gegner.Endboss
+import endboss.Endboss
 
 fun main() {
     //var endboss: Endboss = Endboss("Molag Bal", 1000)

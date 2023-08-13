@@ -1,7 +1,7 @@
 package helden
 
-import gegner.Endboss
-import gegner.Gegner
+import endboss.Endboss
+import endboss.Gegner
 import held1
 import held2
 import held3

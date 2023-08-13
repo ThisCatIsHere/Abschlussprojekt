@@ -1,6 +1,5 @@
-import gegner.Endboss
-import gegner.Gegner
-import gegner.Miniboss
+import endboss.Endboss
+import endboss.Miniboss
 import helden.Dunkelelf
 import helden.Helden
 import helden.Khajit
@@ -18,7 +17,7 @@ var endboss = Endboss("MolagBal", 1000)
 var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 500)
 
 var heldenListe = mutableListOf<Helden>(held1, held2, held3)
-
+var randomHeld = heldenListe.random()
 
 fun heldenMenue(): Helden? {
     println("Wähle deinen Helden:")
@@ -45,17 +44,17 @@ fun heldenMenue(): Helden? {
 
 }
 //Die Funktion wurde mithilfe von Chat Gpt erstellt
-fun kampfRunde(heldenliste: Helden, gegner: Gegner) {
+fun kampfRunde() {
     while (!gameOver(endboss, held1, held2, held3)) {
-        if (gegner is Endboss) {
-            if (gegner.lebenspunkte > gegner.maxLebenspunkte / 2) {
+
+            if (endboss.lebenspunkte > endboss.maxLebenspunkte / 2) {
                 println("Molag Bal erscheint")
                 // Hier kannst du den Kampfzyklus für den Endboss implementieren
             } else if (!minibossSpawnt) {
                 minibossSpawnt = true
                 println("Molag Bal ruft einen Seelen Leibeigenen herbei...")
-                gegner.verloreneSeeleSpawnt()
-                gegner.verloreneSeele?.let {
+                endboss.verloreneSeeleSpawnt()
+                endboss.verloreneSeele?.let {
                     println("Miniboss erscheint")
                     // Hier kannst du den Kampfzyklus für den Miniboss implementieren
                 }
@@ -63,13 +62,11 @@ fun kampfRunde(heldenliste: Helden, gegner: Gegner) {
                 println("Molag Bal erscheint")
                 // Hier kannst du den Kampfzyklus für den Endboss implementieren
             }
-        } else if (gegner is Miniboss) {
-            println("Miniboss erscheint")
-            // Hier kannst du den Kampfzyklus für den Miniboss implementieren
+        println("Das Spiel ist vorbei.")
         }
     }
-    println("Das Spiel ist vorbei.")
-}
+
+
 
 
 fun gameOver(endboss: Endboss, held1: Khajit, held2: Ork, held3: Dunkelelf): Boolean{

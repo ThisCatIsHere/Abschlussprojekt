@@ -1,8 +1,7 @@
 package helden
 
-import gegner.Miniboss
-import gegner.Endboss
-import gegner.Gegner
+import endboss.Endboss
+import endboss.Gegner
 
 class Khajit(name: String) : Helden(name) {
     var assassinenKlinge: Int = 200

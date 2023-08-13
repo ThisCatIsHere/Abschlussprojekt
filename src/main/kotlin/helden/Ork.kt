@@ -1,7 +1,7 @@
 package helden
 
-import gegner.Endboss
-import gegner.Gegner
+import endboss.Endboss
+import endboss.Gegner
 //Ork muss noch geändert werden, da er Probleme bei der Seelenfluch Methode macht
 class Ork(name: String, extraLebenspunkte: Int) : Helden(name, lebenspunkte = 750 + extraLebenspunkte) {
 
