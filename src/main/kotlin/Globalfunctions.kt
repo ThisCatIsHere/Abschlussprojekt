@@ -16,12 +16,14 @@ var held3 = Dunkelelf("Anarwen", wenigerLeben = 250)
 var endboss = Endboss("MolagBal", 1000)
 var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 500)
 
+
 var heldenListe = mutableListOf<Helden>(held1, held2, held3)
 var randomHeld = heldenListe.random()
 
-fun heldenMenue(): Helden? {
+fun heldenMenue(): Any? {
     println("Wähle deinen Helden:")
-    println("1 = Khajit | 2 = Dunkelelf | 3 = Ork | 4 = Abbrechen")
+    println("In Klammern stehen die Start Lebenspunkte")
+    println("1 = Khajit (750) | 2 = Ork (900) | 3 = Dunkelelf (500) | 4 = Abbrechen")
 
     var userInput: Int
     userInput = try {
@@ -31,10 +33,20 @@ fun heldenMenue(): Helden? {
     }
 
     return when (userInput) {
-        1 -> Khajit("Khajit")
-        2 -> Dunkelelf("Dunkelelf", wenigerLeben = 250)
-        3 -> Ork("Horak", 200)
-        4 -> null
+        1 ->{
+            held1.battlemenueKhajit(endboss)
+
+        }
+        2 ->{
+            held2.battlemenueOrk(endboss)
+
+        }
+        3 -> {
+            held3.battlemenueDunkelelf(endboss)
+
+        }
+
+
 
         else -> {
             println("Ungültige Eingabe. Bitte wähle 1 - 4.")
@@ -46,14 +58,21 @@ fun heldenMenue(): Helden? {
 //Die Funktion wurde mithilfe von Chat Gpt erstellt
 fun kampfRunde() {
 
+
     while (!gameOver(endboss, held1, held2, held3)) {
 
         if (endboss.lebenspunkte > endboss.maxLebenspunkte / 2) {
-            println("Molag Bal greift an!")
+            println("...und wartet welcher Held sich ihm zuerst stellen wird...")
             println("")
+            println("-------------------  1 Runde beginnt ---------------------")
+            heldenMenue()
+            println("..........................................................")
             endboss.endbossAttacke()
+
+
+
             println("")
-            heldenMenue() //Bis hier hin läuft es
+             //Bis hier hin läuft es
 
         } else if (!minibossSpawnt) {
             minibossSpawnt = true

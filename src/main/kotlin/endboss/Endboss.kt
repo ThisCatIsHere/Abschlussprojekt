@@ -23,13 +23,13 @@ class Endboss(name: String,lebenspunkte: Int) : Gegner(name,lebenspunkte) {
         held2.lebenspunkte -= seelenRaub
         held3.lebenspunkte -= seelenRaub
 
-        println("Molag Bal greift alle Helden mit seinem Seelenraub an")
+        println("Molag Bal greift alle Helden mit seinem Seelenraub an und fügte Ihnen allen jeweils $seelenRaub Schaden zu!")
     }
 
     fun seelenAnker() {
         var randomHeld = heldenListe.random()
         randomHeld.lebenspunkte -= seelenAnker
-        println("Molag Bal schmettert seinen Seelen Anker zu ${randomHeld.name}")
+        println("Molag Bal schmettert seinen Seelen Anker zu ${randomHeld.name} und fügt ihm $seelenAnker Schaden zu!")
     }
 
 
@@ -54,13 +54,13 @@ class Endboss(name: String,lebenspunkte: Int) : Gegner(name,lebenspunkte) {
     fun seelenZange() {
     var randomHeld = heldenListe.random()
         randomHeld.lebenspunkte -= seelenZange
-        println("Molag Bal schwingt seine Seelen Zange und trifft ${randomHeld.name}")
+        println("Molag Bal schwingt seine Seelen Zange und trifft ${randomHeld.name} und fügt ihm $seelenZange Schaden zu!")
     }
 
     fun wuetendesSchnauben() {
         var randomHeld = heldenListe.random()
         randomHeld.lebenspunkte -= wuetendesSchnauben
-        println("Molag Bal schnaubt wütend und sein Atem trifft ${randomHeld.name}")
+        println("Molag Bal schnaubt wütend und sein Atem trifft ${randomHeld.name} und fügt ihm $wuetendesSchnauben Schaden zu!")
     }
 
     fun verloreneSeeleSpawnt() {

@@ -1,7 +1,8 @@
 package helden
 
-import endboss.Endboss
 import endboss.Gegner
+import heldenMenue
+
 //Ork muss noch geändert werden, da er Probleme bei der Seelenfluch Methode macht
 class Ork(name: String, extraLebenspunkte: Int) : Helden(name, lebenspunkte = 750 + extraLebenspunkte) {
 
@@ -11,6 +12,9 @@ class Ork(name: String, extraLebenspunkte: Int) : Helden(name, lebenspunkte = 75
     var versengenderSchlag: Int = 250
     var kettenDerVerwuestung: Int = 200
     var glutGranate: Int = 150
+
+    var hatSchonAngegriffen: Boolean = false
+    var lebtNoch: Boolean = true
 
 
     fun blockade(gegner: Gegner) {
@@ -33,41 +37,53 @@ class Ork(name: String, extraLebenspunkte: Int) : Helden(name, lebenspunkte = 75
         println("Horak lässt seine Glutgranate zum Gegner kullern und trifft ${gegner.name}")
     }
 
-    fun battlemenueOrk(gegner: Endboss) {
-        println("Wähle nun deine Aktion aus")
-        println("1 = Blockade | 2 = Versengender Schlag | 3 = Ketten der Verwüstung | 4 = Glutgranate | 5 = Abbrechen")
+    fun battlemenueOrk(gegner: Gegner) {
+        if (lebtNoch && !hatSchonAngegriffen) {
+            println("Wähle nun deine Aktion aus")
+            println("In den Klammern steht der Schaden, der Fähigkeit")
+            println("1 = Blockade (300) | 2 = Versengender Schlag (250)| 3 = Ketten der Verwüstung (200) | 4 = Glutgranate (150)| 5 = Abbrechen")
 
-        var userInput: Int
-        try {
-            userInput = readLine()?.toInt() ?: 0
-        } catch (e: NumberFormatException) {
-            userInput = 0
-        }
-        when (userInput) {
-            1 -> {
-                blockade(gegner)
+            var userInput: Int
+            try {
+                userInput = readLine()?.toInt() ?: 0
+            } catch (e: NumberFormatException) {
+                userInput = 0
             }
+            when (userInput) {
+                1 -> {
+                    blockade(gegner)
+                }
 
-            2 -> {
-                versengenderSchlag(gegner)
-            }
+                2 -> {
+                    versengenderSchlag(gegner)
+                }
 
-            3 -> {
-                kettenDerVerwuestung(gegner)
-            }
+                3 -> {
+                    kettenDerVerwuestung(gegner)
+                }
 
-            4 -> {
-                glutGranate(gegner)
-            }
+                4 -> {
+                    glutGranate(gegner)
+                }
 
-            5 -> {
-                println("Du hast die Aktion abgebrochen")
-                //Laufzeitvariable einbauen
-            }
+                5 -> {
+                    heldenMenue()?.let {
+                        println("Held wechseln")
+                    }
+                }
 
-            else -> {
-                println("Du kannst nur die Zahlen 1 - 5 nutzen!")
+                6 -> {
+                    println("Du hast die Aktion abgebrochen")
+                }
+
+                else -> {
+                    println("Du kannst nur die Zahlen 1 - 6 nutzen!")
+                }
             }
+            hatSchonAngegriffen = true
+
+        } else {
+            println("Der Ork kann in dieser Runde nicht mehr kämpfen!")
         }
     }
 }
