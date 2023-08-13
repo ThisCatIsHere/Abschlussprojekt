@@ -53,7 +53,7 @@ fun kampfRunde() {
             println("")
             endboss.endbossAttacke()
             println("")
-            heldenMenue()
+            heldenMenue() //Bis hier hin läuft es
 
         } else if (!minibossSpawnt) {
             minibossSpawnt = true
