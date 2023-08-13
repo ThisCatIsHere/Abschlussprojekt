@@ -87,6 +87,7 @@ fun neuesSpiel() {
     println("==============================================")
     println()
 
+    //kampfRunde()
 
     while (!isGameOver) {
         val selectedHero = heldenMenue()

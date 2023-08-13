@@ -12,22 +12,22 @@ class Khajit(name: String) : Helden(name) {
 
     fun schattenSchuss(gegner: Gegner) {
         gegner.lebenspunkte -= schattenSchuss
-        println("Der Khajit hat mit dem Schattenschuss dem ${gegner.name} $schattenSchuss Lebenspunkte Schaden zugefügt")
+        println("Der Khajit hat mit dem Schattenschuss ${gegner.name} $schattenSchuss Lebenspunkte Schaden zugefügt")
     }
 
     fun assassinenKlinge(gegner: Gegner) {
         gegner.lebenspunkte -= assassinenKlinge
-        println("Hier kommt noch schönerer Text hin")
+        println("Nachtklinge der Khajit zückt seine Assassinenklinge und fügt ${gegner.name} $assassinenKlinge Lebenspunkte Schaden zu")
     }
 
     fun verwirrungsSchlag(gegner: Gegner) {
         gegner.lebenspunkte -= verwirrungSchlag
-        println("Hier kommt noch ein passender Text hin")
+        println("Der Verwirrungsschlag trifft ${gegner.name} und fügt ihm Lebenspunkte Schaden zu")
     }
 
     fun mondsichelGranate(gegner: Gegner) {
         gegner.lebenspunkte -= mondsichelGranate
-        println("Hier kommt noch ein passender Text hin")
+        println("Der Khajit wirft eine Mondsichelgranate und trifft damit ${gegner.name} und fügt ihm damit Lebenspunkte Schaden zu")
     }
 
     fun battlemenueKhajit(gegner: Endboss) {
@@ -59,7 +59,7 @@ class Khajit(name: String) : Helden(name) {
 
             5 -> {
                 println("Du hast die Aktion abgebrochen")
-                //Laufzeitvariable einbauen
+
             }
 
             else -> {

@@ -1,5 +1,6 @@
 import endboss.Endboss
 import endboss.Miniboss
+import endboss.minibossAttacke
 import helden.Dunkelelf
 import helden.Helden
 import helden.Khajit
@@ -49,18 +50,18 @@ fun kampfRunde() {
 
             if (endboss.lebenspunkte > endboss.maxLebenspunkte / 2) {
                 println("Molag Bal erscheint")
-                // Hier kannst du den Kampfzyklus für den Endboss implementieren
+                endboss.endbossAttacke()
             } else if (!minibossSpawnt) {
                 minibossSpawnt = true
                 println("Molag Bal ruft einen Seelen Leibeigenen herbei...")
                 endboss.verloreneSeeleSpawnt()
                 endboss.verloreneSeele?.let {
                     println("Miniboss erscheint")
-                    // Hier kannst du den Kampfzyklus für den Miniboss implementieren
+                    minibossAttacke()
                 }
             } else {
                 println("Molag Bal erscheint")
-                // Hier kannst du den Kampfzyklus für den Endboss implementieren
+                endboss.endbossAttacke()
             }
         println("Das Spiel ist vorbei.")
         }

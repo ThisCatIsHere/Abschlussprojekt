@@ -15,22 +15,22 @@ class Ork(name: String, extraLebenspunkte: Int) : Helden(name, lebenspunkte = 75
 
     fun blockade(gegner: Gegner) {
         lebenspunkte -= (gegner.angriffskraft - blockade)
-        println("Hier kommt noch passender Text")
+        println("Horak stellt seine Blockade, welche ${gegner.name} trifft und $blockade Lebenspunkte Schaden hinzufügt")
     }
 
     fun versengenderSchlag(gegner: Gegner) {
         gegner.lebenspunkte -= versengenderSchlag
-        println("Hier kommt noch passender Text")
+        println("Horak holt mit seiner glühenden Axt aus, und trifft ${gegner.name} mit seinem $versengenderSchlag")
     }
 
     fun kettenDerVerwuestung(gegner: Gegner) {
         gegner.lebenspunkte -= kettenDerVerwuestung
-        println("Hier kommt noch passender Text")
+        println("Der Ork wirft seine Ketten der Verwüstung und trifft ${gegner.name}")
     }
 
     fun glutGranate(gegner: Gegner) {
         gegner.lebenspunkte -= glutGranate
-        println("Hier kommt noch passender Text")
+        println("Horak lässt seine Glutgranate zum Gegner kullern und trifft ${gegner.name}")
     }
 
     fun battlemenueOrk(gegner: Endboss) {

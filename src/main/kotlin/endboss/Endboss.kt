@@ -54,13 +54,13 @@ class Endboss(name: String,lebenspunkte: Int) : Gegner(name,lebenspunkte) {
     fun seelenZange() {
     var randomHeld = heldenListe.random()
         randomHeld.lebenspunkte -= seelenZange
-        println("Molag Bal schingt seine Seelen Zange")
+        println("Molag Bal schwingt seine Seelen Zange und trifft ${randomHeld.name}")
     }
 
     fun wuetendesSchnauben() {
         var randomHeld = heldenListe.random()
         randomHeld.lebenspunkte -= wuetendesSchnauben
-        println("Molag Bal schnaubt wütend und sein Atem trifft einen Helden")
+        println("Molag Bal schnaubt wütend und sein Atem trifft ${randomHeld.name}")
     }
 
     fun verloreneSeeleSpawnt() {
