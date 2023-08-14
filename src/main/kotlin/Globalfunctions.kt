@@ -47,6 +47,9 @@ fun heldenMenue(): Any? {
             held3.battlemenueDunkelelf(endboss)
 
         }
+        4 -> {
+
+        }
 
 
         else -> {
@@ -81,6 +84,8 @@ fun kampfRunde() {
                 heldenMenue()
                 heldenMenue()
                 heldenMenue()
+
+
 
                 held1.hatSchonAngegriffen = false
                 held2.hatSchonAngegriffen = false

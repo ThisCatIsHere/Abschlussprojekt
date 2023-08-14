@@ -22,17 +22,17 @@ class Dunkelelf(name: String, wenigerLeben: Int) : Helden(name, lebenspunkte = 7
 
     fun sonnenFinsternis(gegner: Gegner) {
         gegner.lebenspunkte -= sonnenFinsternis
-        println("Anarwen trifft mit seiner Sonnenfinsternis ${gegner.name} und fügt ihm Lebenspunkte Schaden zu")
+        println("Anarwen trifft mit seiner Sonnenfinsternis ${gegner.name} und fügt ihm ${sonnenFinsternis}Lebenspunkte Schaden zu")
     }
 
     fun blutMagie(gegner: Gegner) {
         gegner.lebenspunkte -= blutMagie
-        println("Der Dunkelelf flüstert leise seinen Blutmagie Fluch und trifft ${gegner.name} und fügt ihm Lebenspunkte Schaden zu")
+        println("Der Dunkelelf flüstert leise seinen Blutmagie Fluch und trifft ${gegner.name} und fügt ihm $blutMagie Lebenspunkte Schaden zu")
     }
 
     fun sonnenZerstoerungsstab(gegner: Gegner) {
         gegner.lebenspunkte -= sonnenZerstoerungsstab
-        println("Anarwen schwingt seinen Sonnen Zerstörungsstab und trifft ${gegner.name} und fügt ihm Lebenspunkte Schaden zu")
+        println("Anarwen schwingt seinen Sonnen Zerstörungsstab und trifft ${gegner.name} und fügt ihm $sonnenZerstoerungsstab Lebenspunkte Schaden zu")
     }
 
     fun heilung(helden1: Helden, helden2: Helden, helden3: Helden) {
