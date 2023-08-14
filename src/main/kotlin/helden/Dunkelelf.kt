@@ -19,17 +19,6 @@ class Dunkelelf(name: String, wenigerLeben: Int) : Helden(name, lebenspunkte = 7
     var hatSchonAngegriffen: Boolean = false
     var lebtNoch: Boolean = true
 
-    fun darfNochSpielen(gegner: Gegner) {
-        {
-            battlemenueDunkelelf(gegner)
-
-            hatSchonAngegriffen = true
-        } else {
-            println("Der Dunkelelf kann in dieser Runde nicht mehr kämpfen!")
-        }
-
-    }
-
 
     fun sonnenFinsternis(gegner: Gegner) {
         gegner.lebenspunkte -= sonnenFinsternis

@@ -1,6 +1,6 @@
 import endboss.Endboss
 import endboss.Miniboss
-import endboss.minibossAttacke
+
 import helden.Dunkelelf
 import helden.Helden
 import helden.Khajit
@@ -22,8 +22,8 @@ var randomHeld = heldenListe.random()
 
 fun heldenMenue(): Any? {
     println("Wähle deinen Helden:")
-    println("In Klammern stehen die Start Lebenspunkte")
-    println("1 = Khajit (750) | 2 = Ork (900) | 3 = Dunkelelf (500) | 4 = Abbrechen")
+    println("In Klammern stehen die aktuellen Lebenspunkte")
+    println("1 = Khajit (${held1.lebenspunkte}) | 2 = Ork (${held2.lebenspunkte}) | 3 = Dunkelelf (${held3.lebenspunkte}) | 4 = Abbrechen")
 
     var userInput: Int
     userInput = try {
@@ -33,19 +33,20 @@ fun heldenMenue(): Any? {
     }
 
     return when (userInput) {
-        1 ->{
+        1 -> {
             held1.battlemenueKhajit(endboss)
 
         }
-        2 ->{
+
+        2 -> {
             held2.battlemenueOrk(endboss)
 
         }
+
         3 -> {
             held3.battlemenueDunkelelf(endboss)
 
         }
-
 
 
         else -> {
@@ -57,44 +58,70 @@ fun heldenMenue(): Any? {
 
 //Die Funktion wurde mithilfe von Chat Gpt erstellt
 fun kampfRunde() {
-
-
+    var counter: Int = 1
     while (!gameOver(endboss, held1, held2, held3)) {
 
-        if (endboss.lebenspunkte > endboss.maxLebenspunkte / 2) {
-            println("...und wartet welcher Held sich ihm zuerst stellen wird...")
-            println("")
-            println("-------------------  1 Runde beginnt ---------------------")
-            heldenMenue()
-            println("..........................................................")
-            endboss.endbossAttacke()
-
-
-
-            println("")
-             //Bis hier hin läuft es
-
-        } else if (!minibossSpawnt) {
+        if (!minibossSpawnt && endboss.lebenspunkte > endboss.maxLebenspunkte / 2) {
             minibossSpawnt = true
             println("Molag Bal ruft einen Seelen Leibeigenen herbei...")
-            endboss.verloreneSeeleSpawnt()
-            endboss.verloreneSeele?.let {
-                println("Miniboss erscheint")
-                minibossAttacke()
-            }
-        } else {
-            println("Molag Bal erscheint")
-            endboss.endbossAttacke()
+            miniboss.minibossAttacke()
+
         }
-        println("Das Spiel ist vorbei.")
+
+        else if (endboss.lebenspunkte > 0) {
+
+            println("...und wartet welcher Held sich ihm zuerst stellen wird...")
+            println("")
+            println("-------------------  $counter Runde beginnt ---------------------")
+
+            if (minibossSpawnt && miniboss.lebenspunkte > 0) {
+                println("Molag Bal zieht sich zurück und lässt seinen Leibeignen kämpfen.")
+                println("Der Seelenleibeigene erscheint und greift die Helden an")
+                miniboss.minibossAttacke()
+                heldenMenue()
+                heldenMenue()
+                heldenMenue()
+
+                held1.hatSchonAngegriffen = false
+                held2.hatSchonAngegriffen = false
+                held3.hatSchonAngegriffen = false
+
+            } else {
+
+                heldenMenue()
+                heldenMenue()
+                heldenMenue()
+                println("..........................................................")
+                endboss.endbossAttacke()
+                held1.hatSchonAngegriffen = false
+                held2.hatSchonAngegriffen = false
+                held3.hatSchonAngegriffen = false
+
+            }
+
+            println("")
+
+
+        }
+        counter += 1
     }
+
+    println("Das Spiel ist vorbei.")
 }
 
-
 fun gameOver(endboss: Endboss, held1: Khajit, held2: Ork, held3: Dunkelelf): Boolean {
-    if ((held1.lebenspunkte == 0) && (held2.lebenspunkte == 0) && (held3.lebenspunkte == 0)) {
+
+    if ((held1.lebenspunkte <= 0) && (held2.lebenspunkte <= 0) && (held3.lebenspunkte <= 0)) {
+        println("Game Over, Molag Bal hat Eure Helden besiegt!")
         return true
+
+
+    } else if (endboss.lebenspunkte <= 0) {
+        println("Gewonnen! Du hast Molag Bal besiegt")
+        return true
+
     }
+
     return false
 }
 

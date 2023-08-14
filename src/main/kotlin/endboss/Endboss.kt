@@ -68,6 +68,7 @@ class Endboss(name: String,lebenspunkte: Int) : Gegner(name,lebenspunkte) {
             verloreneSeele = Miniboss("Seelen Leibeigener", wenigerLeben = 500)
             println("Molag Bal ruft seinen Seelenleibeigenen herbei!")
             minibossSpawnt = true
+
         }
     }
 

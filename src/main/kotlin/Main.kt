@@ -91,28 +91,10 @@ fun neuesSpiel() {
     println("")
 
 
-    kampfRunde()
+    kampfRunde() //in while einbauen
 
 
-    while (!isGameOver) {
-        val selectedHero = heldenMenue()
 
-        if (selectedHero == null) {
-            println("Du hast dich entschieden abzubrechen. Auf Wiedersehen!")
-            break
-
-        } else if (selectedHero is Khajit) {
-            held1.battlemenueKhajit(endboss)
-
-        } else if (selectedHero is Dunkelelf) {
-            held3.battlemenueDunkelelf(endboss)
-
-        } else if (selectedHero is Ork) {
-            held2.battlemenueOrk(endboss)
-        }
-
-//Spielablauf in klein aufbauen
-    }
 
     //Endboss Spawnt mit text
 
@@ -124,7 +106,7 @@ fun neuesSpiel() {
     // Helden greifen an
     //while helden aktionen (jeder held eine)
     //Auswahl held
-    val selectedHero = heldenMenue()
+
     ////Aktion held
 
 
