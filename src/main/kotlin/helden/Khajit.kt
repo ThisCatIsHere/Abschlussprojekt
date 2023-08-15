@@ -64,7 +64,7 @@ class Khajit(name: String) : Helden(name) {
                 }
 
                 5 -> {
-                    heldenMenue()?.let {
+                    heldenMenue(gegner)?.let {
                         println("Held wechseln")
                     }
                 }

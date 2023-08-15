@@ -83,7 +83,7 @@ class Dunkelelf(name: String, wenigerLeben: Int) : Helden(name, lebenspunkte = 7
                 }
 
                 5 -> {
-                    heldenMenue()?.let {
+                    heldenMenue(gegner)?.let {
                         println("Held wechseln")
                     }
                 }

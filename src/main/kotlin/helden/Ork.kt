@@ -67,7 +67,7 @@ class Ork(name: String, extraLebenspunkte: Int) : Helden(name, lebenspunkte = 75
                 }
 
                 5 -> {
-                    heldenMenue()?.let {
+                    heldenMenue(gegner)?.let {
                         println("Held wechseln")
                     }
                 }

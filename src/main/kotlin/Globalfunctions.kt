@@ -1,4 +1,5 @@
 import endboss.Endboss
+import endboss.Gegner
 import endboss.Miniboss
 
 import helden.Dunkelelf
@@ -20,7 +21,7 @@ var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 500)
 var heldenListe = mutableListOf<Helden>(held1, held2, held3)
 var randomHeld = heldenListe.random()
 
-fun heldenMenue(): Any? {
+fun heldenMenue(gegner: Gegner): Any? {
     println("Wähle deinen Helden:")
     println("In Klammern stehen die aktuellen Lebenspunkte")
     println("1 = Khajit (${held1.lebenspunkte}) | 2 = Ork (${held2.lebenspunkte}) | 3 = Dunkelelf (${held3.lebenspunkte}) | 4 = Abbrechen")
@@ -34,17 +35,17 @@ fun heldenMenue(): Any? {
 
     return when (userInput) {
         1 -> {
-            held1.battlemenueKhajit(endboss)
+            held1.battlemenueKhajit(gegner)
 
         }
 
         2 -> {
-            held2.battlemenueOrk(endboss)
+            held2.battlemenueOrk(gegner)
 
         }
 
         3 -> {
-            held3.battlemenueDunkelelf(endboss)
+            held3.battlemenueDunkelelf(gegner)
 
         }
         4 -> {
@@ -54,7 +55,7 @@ fun heldenMenue(): Any? {
 
         else -> {
             println("Ungültige Eingabe. Bitte wähle 1 - 4.")
-            heldenMenue()
+            heldenMenue(gegner)
         }
     }
 }
@@ -64,7 +65,7 @@ fun kampfRunde() {
     var counter: Int = 1
     while (!gameOver(endboss, held1, held2, held3)) {
 
-        if (!minibossSpawnt && endboss.lebenspunkte > endboss.maxLebenspunkte / 2) {
+        if (!minibossSpawnt && endboss.lebenspunkte <= endboss.maxLebenspunkte / 2) {
             minibossSpawnt = true
             println("Molag Bal ruft einen Seelen Leibeigenen herbei...")
             miniboss.minibossAttacke()
@@ -81,9 +82,9 @@ fun kampfRunde() {
                 println("Molag Bal zieht sich zurück und lässt seinen Leibeignen kämpfen.")
                 println("Der Seelenleibeigene erscheint und greift die Helden an")
                 miniboss.minibossAttacke()
-                heldenMenue()
-                heldenMenue()
-                heldenMenue()
+                heldenMenue(miniboss)
+                heldenMenue(miniboss)
+                heldenMenue(miniboss)
 
 
 
@@ -93,9 +94,9 @@ fun kampfRunde() {
 
             } else {
 
-                heldenMenue()
-                heldenMenue()
-                heldenMenue()
+                heldenMenue(endboss)
+                heldenMenue(endboss)
+                heldenMenue(endboss)
                 println("..........................................................")
                 endboss.endbossAttacke()
                 held1.hatSchonAngegriffen = false
