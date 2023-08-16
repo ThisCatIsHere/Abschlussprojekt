@@ -12,7 +12,7 @@ fun main() {
 
     do {
         println("\t ============== Menü ==============")
-        println("==== 1.Neues Spiel --- 2.Spiel beenden ====")
+        println("==== "+green+"1.Neues Spiel"+reset+" --- "+red+"2.Spiel beenden "+reset+" ====")
         println("Drücke Taste 1 oder 2")
         var userInput: Int
         userInput = try {
@@ -77,51 +77,20 @@ fun neuesSpiel() {
     println(
         """
     |Kapitel 3: Der Endboss und die Entscheidung|
-    Endlich erreichen die Helden den Ort, an dem Molag Bal seine finsteren Pläne schmiedet. 
+    Endlich erreichen die Helden den Ort, an dem Molag Bal seine finsteren Pl1ne schmiedet. 
     Dort stehen sie seinem Schrecken gegenüber, als er versucht, die Seelen der Einwohner von 
     Tamriel zu verschlingen, um unermessliche Macht zu erlangen. In einem epischen Kampf setzen die Helden 
     all ihre Fähigkeiten und Stärken ein, um Molag Bal entgegenzutreten. Doch der Kampf ist nicht leicht, und 
     die Dunkelheit scheint alles zu verschlingen.
      """.trimIndent()
     )
+
     println()
-    println("==============================================")
+    println(red+"==============================================")
     println("*** Molag Bal erscheint aus der Finsternis ***")
-    println("==============================================")
-    println("")
+    println("=============================================="+reset)
+    kampfRunde()
 
-
-    kampfRunde() //in while einbauen
-
-
-
-
-    //Endboss Spawnt mit text
-
-
-    //Runde Startet
-    //////////////////////////////////////Runde////////////////////////////
-    /// While aktionen helden und boss übrig
-
-    // Helden greifen an
-    //while helden aktionen (jeder held eine)
-    //Auswahl held
-
-    ////Aktion held
-
-
-    //Boss greift an
-    //Boss + schergen aktionen
-    //aktion boss
-
-    //Aktion Miniboss
-
-
-    /////////////////////////////////////ende Runde//////////////////////////
-
-
-    ///////////////////////////////////ende Kampf///////////////////////////
-//      Win or Loose screen
 
 }
 
