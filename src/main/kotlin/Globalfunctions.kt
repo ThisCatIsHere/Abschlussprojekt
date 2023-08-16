@@ -53,7 +53,7 @@ fun spacer(ammount: Int){
  * @return helden
  */
 fun heldenMenue(gegner: Gegner): Any? {
-    spacer(5)
+    spacer(3)
     println("Wähle deinen Helden:")
     println("In Klammern stehen die aktuellen Lebenspunkte")
     if (held.lebtHeldNoch ){
