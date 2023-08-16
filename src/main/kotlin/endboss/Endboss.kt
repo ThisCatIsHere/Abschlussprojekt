@@ -42,22 +42,6 @@ class Endboss(name: String, lebenspunkte: Int) : Gegner(name, lebenspunkte) {
         }
 
 
-
-
-        // 2 Version:
-        /*held1.lebenspunkteCheck(held1)
-        held2.lebenspunkteCheck(held2)
-        held3.lebenspunkteCheck(held3)
-
-        held1.lebenspunkte = maxOf(held1.lebenspunkte - seelenRaub, 0)
-        held2.lebenspunkte = maxOf(held2.lebenspunkte - seelenRaub, 0)
-        held3.lebenspunkte = maxOf(held3.lebenspunkte - seelenRaub, 0)*/
-
-/*// 1 Version:
-//        held1.lebenspunkte -= seelenRaub
-//        held2.lebenspunkte -= seelenRaub
-//        held3.lebenspunkte -= seelenRaub*/
-
         println(red + "------------------------------------------------------------------------------")
         println("Bal greift alle Helden mit seinem Seelenraub an und fügte Ihnen allen jeweils $seelenRaub Schaden zu!")
         println("------------------------------------------------------------------------------" + reset)

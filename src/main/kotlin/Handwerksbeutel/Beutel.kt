@@ -62,24 +62,25 @@ open class Beutel() {
                 }
 
                 4 -> {
+                    var vitaminbombe = Vitaminbombe("Vitaminbombe", 10)
+                    vitaminbombe.vitaminbombe()
+                    inventar.remove(vitaminbombe)
 
-                    //vitaminbombe(helden)
                 }
 
 
-            5 -> {
-                println("Du hast die Aktion abgebrochen")
-            }
+                5 -> {
+                    println("Du hast die Aktion abgebrochen")
+                }
 
-            else -> {
-                println("Du kannst nur die Zahlen 1 - 5 nutzen!")
+                else -> {
+                    println("Du kannst nur die Zahlen 1 - 5 nutzen!")
+                }
             }
+            wurdeBereitsBenutzt = true
+
+        } else {
+            println(yellow + "Der Beutel wurde in dieser Runde bereits benutzt!" + reset)
         }
-        wurdeBereitsBenutzt = true
-
-    } else
-    {
-        println(yellow+"Der Beutel wurde in dieser Runde bereits benutzt!"+reset)
     }
-}
 }

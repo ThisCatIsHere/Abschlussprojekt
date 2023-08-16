@@ -29,7 +29,7 @@ var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 500)
 var heldenListe = mutableListOf<Helden>(held, held2, held3)
 
 
-fun lebenspunkteCheck(helden: Helden) { //noch nicht fertig
+fun lebenspunkteCheck(helden: Helden) {
     if (helden.lebenspunkte <= 0) {
         helden.lebenspunkte = 0
         helden.lebtHeldNoch = false
@@ -131,6 +131,7 @@ fun kampfRunde() {
             println("...und wartet welcher Held sich ihm zuerst stellen wird...")
             println("")
             println(yellow+"-------------------  $counter Runde beginnt ---------------------"+reset)
+            println(yellow+"Noch verbleibende Lebenspunkte von Molag Bal: "+ endboss.lebenspunkte+reset)
 
             if (minibossSpawnt && miniboss.lebenspunkte > 0) {
 

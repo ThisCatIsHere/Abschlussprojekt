@@ -59,7 +59,7 @@ fun neuesSpiel() {
     val lines = text1.trimIndent().lines()
     for (line in lines){
         println(line)
-        Thread.sleep(1000)
+        Thread.sleep(500)
     }
     spacer(2)
     var text2 = """
@@ -72,7 +72,7 @@ fun neuesSpiel() {
     val lines2 = text2.trimIndent().lines()
     for (line in lines2){
         println(line)
-        Thread.sleep(1000)
+        Thread.sleep(500)
     }
     spacer(2)
     var text3 ="""
@@ -86,7 +86,7 @@ fun neuesSpiel() {
     val lines3 = text3.trimIndent().lines()
     for (line in lines3) {
         println(line)
-        Thread.sleep(1000)
+        Thread.sleep(500)
     }
 
 
