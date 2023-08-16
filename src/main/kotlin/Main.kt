@@ -7,14 +7,16 @@ import kotlin.system.exitProcess
 
 fun main() {
 
-
+    // Begrüßungstext
     println("\t\tWillkommen zum ESO RPG-Game")
 
-
+    //DO-While Schleife, die das Menü des Spiels anzeigt
     do {
         println("\t ============== Menü ==============")
         println("==== " + green + "1.Neues Spiel" + reset + " --- " + red + "2.Spiel beenden " + reset + " ====")
         println("Drücke Taste 1 oder 2")
+
+        //Benutzereingabe
         var userInput: Int
         userInput = try {
             readLine()?.toInt() ?: 0
@@ -25,10 +27,12 @@ fun main() {
         // Menüoptionen
         when (userInput) {
             1 -> {
+                //Startet das Spiel
                 neuesSpiel()
             }
 
             2 -> {
+                //Beendet das Spiel
                 println("Auf Wiedersehen!")
                 exitProcess(0)
 
@@ -38,6 +42,7 @@ fun main() {
                 println("Ungültige Eingabe. Bitte wähle eine Option (1 oder 2).")
             }
         }
+        // Die Schleife läuft, bis der Benutzer das Spiel beendet
     } while (userInput != 2)
 
 }
@@ -56,8 +61,10 @@ fun neuesSpiel() {
         Nachtschatten, der gewandte Khajit-Dieb, Anarwen, der geheimnisvolle Dunkelelf, und Horak, 
         der kraftvolle Ork-Krieger, finden sich inmitten dieser bedrohlichen Situation wieder.
         """
+    //Das mit trimIndent().lines() hat Benni mir gezeigt und erklärt.
+
     val lines = text1.trimIndent().lines()
-    for (line in lines){
+    for (line in lines) {
         println(line)
         Thread.sleep(500)
     }
@@ -70,12 +77,12 @@ fun neuesSpiel() {
         die dunklen Wälder von Tamriel. Der Nebel und die Schatten scheinen lebendig zu sein und lauern überall, 
         während die Seelenlosen nach ihnen greifen. """
     val lines2 = text2.trimIndent().lines()
-    for (line in lines2){
+    for (line in lines2) {
         println(line)
         Thread.sleep(500)
     }
     spacer(2)
-    var text3 ="""
+    var text3 = """
         |Kapitel 3: Der Endboss und die Entscheidung|
         Endlich erreichen die Helden den Ort, an dem Molag Bal seine finsteren Pl1ne schmiedet. 
         Dort stehen sie seinem Schrecken gegenüber, als er versucht, die Seelen der Einwohner von 
@@ -91,9 +98,11 @@ fun neuesSpiel() {
 
 
     println()
+    //Benni hat mir gezeigt wie man einfacher die Farben nutzen kann, als nur den Farbcode rein zu schreiben
     println(red + "==============================================")
     println("*** Molag Bal erscheint aus der Finsternis ***")
     println("==============================================" + reset)
+    //Hier wir die Funktion für die Kampfrunde aufgerufen
     kampfRunde()
 
 
