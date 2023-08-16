@@ -27,13 +27,13 @@ var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 500)
 
 
 var heldenListe = mutableListOf<Helden>(held, held2, held3)
-var randomHeld = heldenListe.random()
-var lebtHeldNoch = true
+
 
 fun lebenspunkteCheck(helden: Helden) { //noch nicht fertig
-    if (helden.lebenspunkte <= 0)
+    if (helden.lebenspunkte <= 0) {
         helden.lebenspunkte = 0
-    helden.lebtHeldNoch = false
+        helden.lebtHeldNoch = false
+    }
 }
 
 
@@ -107,6 +107,7 @@ fun heldenMenue(gegner: Gegner): Any? {
 fun kampfRunde() {
     var counter: Int = 1
     while (!gameOver(endboss, held, held2, held3)) {
+        heldenListe.forEach{lebenspunkteCheck(it)}
         if (!held.lebtHeldNoch){
             heldenListe.remove(held)
         }
@@ -116,8 +117,7 @@ fun kampfRunde() {
         if (!held3.lebtHeldNoch) {
             heldenListe.remove(held3)
         }
-        println(heldenListe)
-        println(held.lebtNoch)
+
         if (!minibossSpawnt && endboss.lebenspunkte <= endboss.maxLebenspunkte / 2) {
             minibossSpawnt = true
             println("Molag Bal ruft einen Seelen Leibeigenen herbei...")
@@ -136,9 +136,7 @@ fun kampfRunde() {
 
                 println("Der Seelenleibeigene sucht sich sein nächstes Opfer aus!")
                 miniboss.minibossAttacke()
-                heldenMenue(miniboss)
-                heldenMenue(miniboss)
-                heldenMenue(miniboss)
+                heldenListe.forEach{heldenMenue(miniboss)}
 
 
 
@@ -149,9 +147,7 @@ fun kampfRunde() {
 
             } else {
 
-                heldenMenue(endboss)
-                heldenMenue(endboss)
-                heldenMenue(endboss)
+                heldenListe.forEach{heldenMenue(endboss)}
                 println("..........................................................")
                 endboss.endbossAttacke()
                 held.hatSchonAngegriffen = false

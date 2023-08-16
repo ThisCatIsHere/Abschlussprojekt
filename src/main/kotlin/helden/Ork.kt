@@ -4,7 +4,7 @@ import cyan
 import endboss.Gegner
 import green
 import heldenMenue
-import lebtHeldNoch
+
 import red
 import reset
 import spacer
@@ -21,11 +21,11 @@ class Ork(name: String, extraLebenspunkte: Int) : Helden(name, lebenspunkte = 75
     var glutGranate: Int = 150
 
     var hatSchonAngegriffen: Boolean = false
-    var lebtNoch: Boolean = true
+
 
 
     fun blockade(gegner: Gegner) {
-        lebenspunkte -= (gegner.angriffskraft - blockade)
+        gegner.lebenspunkte -= blockade
         println(green + "------------------------------------------------------------------------------")
         println("Horak stellt seine Blockade, welche ${gegner.name} trifft und $blockade Lebenspunkte Schaden hinzufügt")
         println("------------------------------------------------------------------------------" + reset)

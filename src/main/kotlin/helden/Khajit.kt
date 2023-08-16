@@ -20,7 +20,6 @@ class Khajit(name: String) : Helden(name, lebtHeldNoch = true) {
     var mondsichelGranate: Int = 50
 
     var hatSchonAngegriffen: Boolean = false
-    var lebtNoch: Boolean = true
 
     fun schattenSchuss(gegner: Gegner) {
         gegner.lebenspunkte -= schattenSchuss
