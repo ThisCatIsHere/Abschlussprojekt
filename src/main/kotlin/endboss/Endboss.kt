@@ -1,14 +1,13 @@
 package endboss
 
-import green
-import held1
+import held
 import held2
 import held3
 import helden.Helden
 import heldenListe
 import lebenspunkteCheck
+
 import minibossSpawnt
-import randomHeld
 import red
 import reset
 import yellow
@@ -24,38 +23,26 @@ class Endboss(name: String, lebenspunkte: Int) : Gegner(name, lebenspunkte) {
     var verloreneSeele: Miniboss? = null //erst wenn der Endboss nur noch 50% leben hat
 
 
+
+
     /*Ich hatte die Methode so wie unten zuerst und habe dann gemerkt, dass ich die
       Lebenspunkte der Helden vergessen hatte und habe da nochmal Chat GPT gefragt.*/
-    fun seelenRaubausfuehren(held1: Helden, held2: Helden, held3: Helden) {
-        if (held1.lebtHeldNoch) {
-            held1.lebenspunkte -= seelenRaub
-            lebenspunkteCheck(held1)
-            println(red + "------------------------------------------------------------------------------")
-            println("${held1.name} wurde vom Seelenraub getroffen und hat nun ${held1.lebenspunkte} Lebenspunkte.")
-            println("------------------------------------------------------------------------------" + reset)
-        } else {
-            println(yellow+"${held1.name} ist bereits besiegt und kann nicht angegriffen werden."+reset)
+    fun seelenRaubausfuehren(helden: MutableList<Helden>) {
+        for (held in helden){
+            if (held.lebtHeldNoch) {
+                held.lebenspunkte -= seelenRaub
+                lebenspunkteCheck(held)
+                println(red + "------------------------------------------------------------------------------")
+                println("${held.name} wurde vom Seelenraub getroffen und hat nun ${held.lebenspunkte} Lebenspunkte.")
+                println("------------------------------------------------------------------------------" + reset)
+            } else {
+                println(yellow+"${held.name} ist bereits besiegt und kann nicht angegriffen werden."+reset)
+            }
+
         }
 
-        if (held2.lebtHeldNoch) {
-            held2.lebenspunkte -= seelenRaub
-            lebenspunkteCheck(held2)
-            println(red + "------------------------------------------------------------------------------")
-            println("${held2.name} wurde vom Seelenraub getroffen und hat nun ${held2.lebenspunkte} Lebenspunkte.")
-            println("------------------------------------------------------------------------------" + reset)
-        } else {
-            println(yellow+"${held2.name} ist bereits besiegt und kann nicht angegriffen werden."+reset)
-        }
 
-        if (held3.lebtHeldNoch) {
-            held3.lebenspunkte -= seelenRaub
-            lebenspunkteCheck(held3)
-            println(red + "------------------------------------------------------------------------------")
-            println("${held3.name} wurde vom Seelenraub getroffen und hat nun ${held3.lebenspunkte} Lebenspunkte.")
-            println("------------------------------------------------------------------------------" + reset)
-        } else {
-            println(yellow+"${held3.name} ist bereits besiegt und kann nicht angegriffen werden."+reset)
-        }
+
 
         // 2 Version:
         /*held1.lebenspunkteCheck(held1)
@@ -76,8 +63,8 @@ class Endboss(name: String, lebenspunkte: Int) : Gegner(name, lebenspunkte) {
         println("------------------------------------------------------------------------------" + reset)
     }
 
-    fun seelenAnker() {
-        var randomHeld = heldenListe.random()
+    fun seelenAnker(randomHeld: Helden) {
+
         /*Ich hatte die Methode zuerst anders und habe dann gemerkt, dass ich die
          Lebenspunkte der Helden vergessen hatte und habe da nochmal Chat GPT gefragt.*/
         randomHeld.lebenspunkte = maxOf(randomHeld.lebenspunkte - seelenAnker, 0)
@@ -88,8 +75,8 @@ class Endboss(name: String, lebenspunkte: Int) : Gegner(name, lebenspunkte) {
     }
 
 
-    fun seelenFluch() {
-        var randomHeld = heldenListe.random()
+    fun seelenFluch(randomHeld: Helden) {
+
 
         var zwanzigProzent = false
         //In der Variable steht die jeweilige LP des Helden drin
@@ -144,9 +131,9 @@ class Endboss(name: String, lebenspunkte: Int) : Gegner(name, lebenspunkte) {
 
         if (randomHeld.lebenspunkte > 0) {
             when (randomattack) {
-                1 -> seelenRaubausfuehren(held1, held2, held3) //Flächenschaden vom Endboss
-                2 -> seelenAnker()
-                3 -> seelenFluch()
+                1 -> seelenRaubausfuehren(heldenListe) //Flächenschaden vom Endboss
+                2 -> seelenAnker(randomHeld)
+                3 -> seelenFluch(randomHeld)
                 4 -> seelenZange(randomHeld)
                 5 -> wuetendesSchnauben(randomHeld)
                 6 -> verloreneSeeleSpawnt()

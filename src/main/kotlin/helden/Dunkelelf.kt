@@ -3,7 +3,7 @@ package helden
 import cyan
 import endboss.Gegner
 import green
-import held1
+import held
 import held2
 import held3
 import heldenMenue
@@ -99,7 +99,7 @@ class Dunkelelf(name: String, wenigerLeben: Int) : Helden(name, lebenspunkte = 7
                     }
 
                     4 -> {
-                        heilung(held1, held2, held3)
+                        heilung(held, held2, held3)
                         hatAktionAusgewaehlt = true
                     }
 

@@ -1,6 +1,6 @@
 package helden
 
-import held1
+
 
 open class Helden(var name: String, var lebenspunkte: Int = 750, var lebtHeldNoch: Boolean) {
 
@@ -13,10 +13,6 @@ open class Helden(var name: String, var lebenspunkte: Int = 750, var lebtHeldNoc
     }
 
 
-    fun lebenspunkteCheck(helden: Helden) { //noch nicht fertig
-        if (helden.lebenspunkte <= 0)
-            helden.lebenspunkte = 0
-        helden.lebtHeldNoch = false
-    }
+
 }
 

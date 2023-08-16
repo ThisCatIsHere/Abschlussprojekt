@@ -1,5 +1,4 @@
 import Handwerksbeutel.Beutel
-import Handwerksbeutel.Item
 import endboss.Endboss
 import endboss.Gegner
 import endboss.Miniboss
@@ -18,7 +17,7 @@ var magenta = "\u001B[35m"
 
 var reset = "\u001B[0m"
 
-var held1 = Khajit("Nachtklinge")
+var held = Khajit("Nachtklinge")
 var held2 = Ork("Horak", extraLebenspunkte = 150)
 var held3 = Dunkelelf("Anarwen", wenigerLeben = 250)
 var beutel = Beutel()
@@ -27,14 +26,14 @@ var endboss = Endboss("MolagBal", 1000)
 var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 500)
 
 
-var heldenListe = mutableListOf<Helden>(held1, held2, held3)
+var heldenListe = mutableListOf<Helden>(held, held2, held3)
 var randomHeld = heldenListe.random()
 var lebtHeldNoch = true
 
 fun lebenspunkteCheck(helden: Helden) { //noch nicht fertig
     if (helden.lebenspunkte <= 0)
         helden.lebenspunkte = 0
-        helden.lebtHeldNoch = false
+    helden.lebtHeldNoch = false
 }
 
 
@@ -57,7 +56,17 @@ fun heldenMenue(gegner: Gegner): Any? {
     spacer(5)
     println("Wähle deinen Helden:")
     println("In Klammern stehen die aktuellen Lebenspunkte")
-    println("1 ="+magenta+" Khajit (${held1.lebenspunkte})"+reset+" | 2 ="+magenta+" Ork (${held2.lebenspunkte})"+reset+" | 3 ="+magenta+" Dunkelelf (${held3.lebenspunkte})"+reset+" | 4 = Beutel")
+    if (held.lebtHeldNoch ){
+        print("1 =$magenta Khajit (${held.lebenspunkte})$reset | ")
+    }
+    if (held2.lebtHeldNoch){
+        print("2 =$magenta Ork (${held2.lebenspunkte})$reset | ")
+    }
+    if (held3.lebtHeldNoch){
+        print("3 =$magenta Dunkelelf (${held3.lebenspunkte})$reset | ")
+    }
+
+    println("4 = Beutel")
 
     var userInput: Int
     userInput = try {
@@ -68,7 +77,7 @@ fun heldenMenue(gegner: Gegner): Any? {
 
     return when (userInput) {
         1 -> {
-            held1.battlemenueKhajit(gegner)
+            held.battlemenueKhajit(gegner)
 
         }
 
@@ -97,8 +106,18 @@ fun heldenMenue(gegner: Gegner): Any? {
 //Die Funktion wurde mithilfe von Chat Gpt erstellt
 fun kampfRunde() {
     var counter: Int = 1
-    while (!gameOver(endboss, held1, held2, held3)) {
-
+    while (!gameOver(endboss, held, held2, held3)) {
+        if (!held.lebtHeldNoch){
+            heldenListe.remove(held)
+        }
+        if (!held2.lebtHeldNoch){
+            heldenListe.remove(held2)
+        }
+        if (!held3.lebtHeldNoch) {
+            heldenListe.remove(held3)
+        }
+        println(heldenListe)
+        println(held.lebtNoch)
         if (!minibossSpawnt && endboss.lebenspunkte <= endboss.maxLebenspunkte / 2) {
             minibossSpawnt = true
             println("Molag Bal ruft einen Seelen Leibeigenen herbei...")
@@ -123,7 +142,7 @@ fun kampfRunde() {
 
 
 
-                held1.hatSchonAngegriffen = false
+                held.hatSchonAngegriffen = false
                 held2.hatSchonAngegriffen = false
                 held3.hatSchonAngegriffen = false
                 beutel.wurdeBereitsBenutzt = false
@@ -135,7 +154,7 @@ fun kampfRunde() {
                 heldenMenue(endboss)
                 println("..........................................................")
                 endboss.endbossAttacke()
-                held1.hatSchonAngegriffen = false
+                held.hatSchonAngegriffen = false
                 held2.hatSchonAngegriffen = false
                 held3.hatSchonAngegriffen = false
 

@@ -1,12 +1,11 @@
 package endboss
 
-import held1
+import held
 import held2
 import held3
 import helden.Helden
 import heldenListe
 import miniboss
-import randomHeld
 import red
 import reset
 
@@ -27,7 +26,7 @@ class Miniboss(name: String, wenigerLeben: Int) : Gegner(name, lebenspunkte = 10
     }
 
     fun welleDerAngst() {
-        held1.lebenspunkte = maxOf(held1.lebenspunkte - miniboss.welleDerAngst, 0)
+        held.lebenspunkte = maxOf(held.lebenspunkte - miniboss.welleDerAngst, 0)
         held2.lebenspunkte = maxOf(held2.lebenspunkte - miniboss.welleDerAngst, 0)
         held3.lebenspunkte = maxOf(held3.lebenspunkte - miniboss.welleDerAngst, 0)
         println(red+"Der Leibeigene stößt eine Welle der Angst aus und trifft alle Helden mit einem Schaden von $welleDerAngst!"+reset)
