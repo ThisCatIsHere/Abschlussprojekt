@@ -15,13 +15,16 @@ import yellow
 //Eine neue Klasse "Endboss", welche von der Klasse "Gegner" erbt.
 class Endboss(name: String, lebenspunkte: Int) : Gegner(name, lebenspunkte) {
     var maxLebenspunkte: Int = 900
+
     //soll alle helden treffen
     var seelenRaub: Int = 300
     var seelenAnker: Int = 250
+
     //soll nur einen helden treffen,//10% pro Held, pro runde bis HP weniger als 20%
     var seelenFluch: Int = 100
     var seelenZange: Int = 50
     var wuetendesSchnauben: Int = 25
+
     //erst wenn der Endboss nur noch 50% leben hat
     var verloreneSeele: Miniboss? = null
 
@@ -34,7 +37,7 @@ class Endboss(name: String, lebenspunkte: Int) : Gegner(name, lebenspunkte) {
     //Flächenschaden vom Endboss auf alle Helden, sofern sie noch am leben sind.
     //Die Funktion bekommt als Parameter eine Liste von Helden, von der Klasse Helden
     fun seelenRaubausfuehren(helden: MutableList<Helden>) {
-        for (held in helden){
+        for (held in helden) {
             if (held.lebtHeldNoch) {
                 held.lebenspunkte -= seelenRaub
                 lebenspunkteCheck(held)
@@ -42,7 +45,7 @@ class Endboss(name: String, lebenspunkte: Int) : Gegner(name, lebenspunkte) {
                 println("${held.name} wurde vom Seelenraub getroffen und hat nun ${held.lebenspunkte} Lebenspunkte.")
                 println("------------------------------------------------------------------------------" + reset)
             } else {
-                println(yellow+"${held.name} ist bereits besiegt und kann nicht angegriffen werden."+reset)
+                println(yellow + "${held.name} ist bereits besiegt und kann nicht angegriffen werden." + reset)
             }
 
         }
@@ -135,22 +138,23 @@ class Endboss(name: String, lebenspunkte: Int) : Gegner(name, lebenspunkte) {
         var randomHeld = heldenListe.random()
 
         // Überprüfung, ob der ausgewählte zufällige Held noch Lebenspunkte hat
-        if (randomHeld.lebenspunkte > 0) {
-            // Je nach zufälliger Angriffsaktion wird eine entsprechende Funktion aufgerufen
-            when (randomattack) {
-                1 -> seelenRaubausfuehren(heldenListe) //Flächenschaden vom Endboss
-                2 -> seelenAnker(randomHeld)
-                3 -> seelenFluch(randomHeld)
-                4 -> seelenZange(randomHeld)
-                5 -> wuetendesSchnauben(randomHeld)
-                6 -> verloreneSeeleSpawnt()
+        if (lebenspunkte > 0) {
+            if (randomHeld.lebenspunkte > 0) {
+                // Je nach zufälliger Angriffsaktion wird eine entsprechende Funktion aufgerufen
+                when (randomattack) {
+                    1 -> seelenRaubausfuehren(heldenListe) //Flächenschaden vom Endboss
+                    2 -> seelenAnker(randomHeld)
+                    3 -> seelenFluch(randomHeld)
+                    4 -> seelenZange(randomHeld)
+                    5 -> wuetendesSchnauben(randomHeld)
+                    6 -> verloreneSeeleSpawnt()
+                }
+            } else {
+                // Wenn der ausgewählte Held bereits besiegt wurde, wird eine Meldung ausgegeben
+                println(yellow + "Der zufällig ausgewählte Held ist bereits besiegt und kann nicht angegriffen werden." + reset)
             }
-        } else {
-            // Wenn der ausgewählte Held bereits besiegt wurde, wird eine Meldung ausgegeben
-            println(yellow+"Der zufällig ausgewählte Held ist bereits besiegt und kann nicht angegriffen werden."+reset)
         }
         // Die Funktion gibt einen booleschen Wert zurück, der in diesem Kontext jedoch keine Auswirkungen hat
         randomHeld.lebenspunkte > 0
     }
-
 }
