@@ -1,7 +1,7 @@
 package helden
 
 
-//Hier habe ich eine neue Klasse für die Helden erstellt.
+//Hier habe ich eine neue Basisklasse für die Helden erstellt.
 open class Helden(var name: String, var lebenspunkte: Int = 750, var lebtHeldNoch: Boolean) {
 
     // Eine Variable, um die maximalen Lebenspunkte des Helden zu speichern.

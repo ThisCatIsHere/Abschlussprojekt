@@ -118,7 +118,7 @@ class Endboss(name: String, lebenspunkte: Int) : Gegner(name, lebenspunkte) {
         // Überprüft, ob die Lebenspunkte des Endbosses unter oder gleich 450 liegen und ob der Miniboss noch nicht gespawnt ist
         if (lebenspunkte <= 450 && !minibossSpawnt) {
             // Erstellt eine Instanz des Minibosses "Seelen Leibeigener" mit vorgegebenen Lebenspunkten (wenigerLeben)
-            verloreneSeele = Miniboss("Seelen Leibeigener", wenigerLeben = 500)
+            verloreneSeele = Miniboss("Seelen Leibeigener")
             println(red + "------------------------------------------------------------------------------")
             println("Molag Bal ruft seinen Seelenleibeigenen herbei!" + reset)
             println("------------------------------------------------------------------------------")

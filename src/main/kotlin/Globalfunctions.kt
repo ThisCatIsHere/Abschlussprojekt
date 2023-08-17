@@ -14,6 +14,7 @@ var green = "\u001B[32m"
 var yellow = "\u001B[33m"
 var cyan = "\u001B[36m"
 var magenta = "\u001B[35m"
+var blue = "\u001B[34m"
 
 var reset = "\u001B[0m"
 
@@ -22,8 +23,8 @@ var held2 = Ork("Horak", extraLebenspunkte = 150)
 var held3 = Dunkelelf("Anarwen", wenigerLeben = 250)
 var beutel = Beutel()
 
-var endboss = Endboss("MolagBal", 1000)
-var miniboss = Miniboss("Seelen Leibeigener", wenigerLeben = 500)
+var endboss = Endboss("MolagBal", 900)
+var miniboss = Miniboss("Seelen Leibeigener")
 
 
 var heldenListe = mutableListOf<Helden>(held, held2, held3)
@@ -138,7 +139,7 @@ fun kampfRunde() {
                 println("Der Seelenleibeigene sucht sich sein nächstes Opfer aus!")
                 miniboss.minibossAttacke()
                 heldenListe.forEach{heldenMenue(miniboss)}
-
+                println(yellow+"Noch verbleibende Lebenspunkte vom Seelenleibeigenen: "+ miniboss.lebenspunkte+reset)
 
 
                 held.hatSchonAngegriffen = false
