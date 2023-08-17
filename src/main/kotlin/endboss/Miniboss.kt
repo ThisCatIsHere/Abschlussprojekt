@@ -11,7 +11,7 @@ import reset
 
 class Miniboss(name: String) : Gegner(name, lebenspunkte = 500) {
 
-
+    var maxLebenspunkte: Int = 500
     // trifft random einen Held
     var kleinerSeelenraub: Int = 200
     // trifft alle Helden

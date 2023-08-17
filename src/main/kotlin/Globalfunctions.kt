@@ -157,6 +157,20 @@ fun kampfRunde() {
                 held3.hatSchonAngegriffen = false
                 beutel.wurdeBereitsBenutzt = false
 
+                // Wenn der Miniboss stirbt
+                if (miniboss.lebenspunkte <= 0) {
+                    // Miniboss ist tot, zurücksetzen der Spawn-Bedingung
+                    minibossSpawnt = false
+                    val verloreneLebenspunkte = miniboss.maxLebenspunkte - miniboss.lebenspunkte
+                    println("Der Seelenleibeigene wurde besiegt! Molag Bal kehrt zurück mit $verloreneLebenspunkte verlorenen Lebenspunkten!")
+
+                    // Endboss kehrt zurück mit bereits verlorenen Lebenspunkten
+                    endboss.lebenspunkte -= verloreneLebenspunkte
+                    // Miniboss-Lebenspunkte auf null setzen
+                    miniboss.lebenspunkte = 0
+                }
+
+
             } else {
                 // Wenn der Endboss nicht mehr lebt
                 for (held in heldenListe) {
